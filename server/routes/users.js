@@ -1,28 +1,32 @@
-const express = require('express');
-const app = express()
-const PORT = process.env.EXPRESS_CONTAINER_PORT || 9999
-const path = require('path')
-const bodyParser = require("body-parser");
-const session = require('express-session');
-const RedisStore = require('connect-redis')(session);
-const route = express.Router();
-const Users = require('../db/models/users.js')
+// const express = require('express');
+// const app = express()
+// const PORT = process.env.EXPRESS_CONTAINER_PORT || 9999
+// const path = require('path')
+// const bodyParser = require("body-parser");
+// const session = require('express-session');
+// const RedisStore = require('connect-redis')(session);
+// const route = express.Router();
+// const Users = require('../db/models/users.js')
 
-route.get('/', (req, res) => {
-  // res.sendFile('../public/index.html')
-  res.send('Hello from routes/users.js')
-})
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.static(path.join(__dirname, '../build')))
 
-route.get('/', (req, res) => {
-  Users
-    .fetchAll()
-    .then(results => {
-      console.log("user results:", results.rows);
-      res.json(results.rows[0])
-    })
-    .catch(err => {
-      console.log('User not found', err);
-    })
-});
+// // route.get('/', (req, res) => {
+// //   // res.sendFile('../public/index.html')
+// //   res.send('Hello from routes/users.js')
+// // })
 
-module.exports = route;
+// // route.get('/', (req, res) => {
+// //   Users
+// //   .fetchAll()
+// //   .then( items => {
+// //     console.log('is it fetching all users', items)
+// //     res.json(items.serialize())
+// //   }) 
+// //   .catch( err => {
+// //     console.log('error', err)
+// //   })
+// // })
+
+// module.exports = route;
