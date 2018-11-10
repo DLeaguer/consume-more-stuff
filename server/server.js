@@ -16,6 +16,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, '../build')))
 
+
+app.get('/', (req, res) => {
+  // res.sendFile('../public/index.html')
+  res.send('Hello from server.js get"/"')
+})
+
 app.get('/users', (req, res) => {
   Users
   .fetchAll()
@@ -23,7 +29,8 @@ app.get('/users', (req, res) => {
     res.json(items.serialize())
   }) 
   .catch( err => {
-    console.log('error', err)
+    console.log('err server.js GET/users', err)
+    res.json(err)
   })
 })
 
@@ -34,6 +41,7 @@ app.get('/bobbles', (req, res) => {
     res.json(items.serialize())
   })
   .catch( err => {
+    console.log('err server.js GET/bobbles', err)
     res.json(err)
   })
 })
@@ -55,6 +63,7 @@ app.post('/newUser', (req, res) => {
     })
     .catch( err => {
       console.log('err server.js POST/newUser', err)
+      res.json(err)
     })
   })
 })
@@ -82,9 +91,49 @@ app.post('/newBobble', (req, res) => {
     })
     .catch( err => {
       console.log('err server.js POST/newBobble', err)
+      res.json(err)
     })
   })
 })
+
+app.delete('/deleteUser/:id', (req, res) => {
+  let { id } = req.params;
+  console.log('req.params id', id)
+  Users
+  .where({ id })
+  .destroy()
+  .then(() => {
+    return Users
+    .fetchAll()
+    .then( result => {
+      res.json(result.serialize())
+    })
+    .catch(err => {
+      console.log('err', err)
+      res.json(err)
+    })
+  })
+})
+
+app.delete('/deleteBobble/:id', (req, res) => {
+  let { id } = req.params;
+  console.log('req.params id', id)
+  Bobbles
+  .where({ id })
+  .destroy()
+  .then(() => {
+    return Bobbles
+    .fetchAll()
+    .then( result => {
+      res.json(result.serialize())
+    })
+    .catch(err => {
+      console.log('err', err)
+      res.json(err)
+    })
+  })
+})
+
 //Routes middleware
 // app.use('/', users);
 // app.use('/', bobbles);
