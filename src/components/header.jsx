@@ -1,6 +1,7 @@
 import React from 'react'
 import ViewAll from './view-all.jsx'
 import Login from './login.jsx'
+import AddForm from './addForm.jsx'
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 function Header(props) {
@@ -11,8 +12,10 @@ function Header(props) {
         <div>
           <Link className='App-header' to='/viewAll'>View All</Link>
           <Link className='App-header' to='/login'>Login</Link>
+          <Link className='App-header' to='/addForm'>New Bobble</Link>
           <Route path='/viewAll' component={ViewAll}></Route>
           <Route path='/login' component={Login}></Route>
+          <Route path='/addForm' component={AddForm} ></Route>
         </div>
       </Router>
       {/* <ViewAll />
