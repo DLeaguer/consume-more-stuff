@@ -135,18 +135,12 @@ app.delete('/deleteBobble/:id', (req, res) => {
 })
 
 app.put("/editUser/:id", (req, res) => {
-  // console.log("\n---> Backend PUT /editTask");
-  // console.log("\nBackend - PUT req.params:", req.params);
-  // console.log("\nBackend - PUT req.body:", req.body);
-  // console.log('req.params', req.params)
-
   const updatedUser = {
     email: req.body.email,
     password: req.body.password,
     created_at: req.body.created_at,
     updated_at: req.body.updated_at
   }
-
   Users
     .where('id', req.params.id)
     .fetch()
@@ -155,14 +149,44 @@ app.put("/editUser/:id", (req, res) => {
       results.save(updatedUser);
       return Users.fetchAll()
     })
-    .then(tasks => {
-      res.json(tasks.serialize());
+    .then(users => {
+      res.json(users.serialize());
     })
     .catch(err => {
       console.log("Backend PUT didn't work");
       res.json("FAILED");
     })
+})
 
+
+app.put("/editBobble/:id", (req, res) => {
+  const updatedBobble = {
+    title: req.body.title,
+    description: req.body.description,
+    price: req.body.price,
+    image: req.body.image,
+    condition: req.body.condition,
+    category: req.body.category,
+    status: req.body.status,
+    user_id: req.body.user_id,
+    created_at: req.body.created_at,
+    updated_at: req.body.updated_at
+  }
+  Bobbles
+    .where('id', req.params.id)
+    .fetch()
+    .then(results => {
+      console.log("\nBackend - PUT results:", results);
+      results.save(updatedBobble);
+      return Bobbles.fetchAll()
+    })
+    .then(bobbles => {
+      res.json(bobbles.serialize());
+    })
+    .catch(err => {
+      console.log("Backend PUT didn't work");
+      res.json("FAILED");
+    })
 })
 
 //Routes middleware
