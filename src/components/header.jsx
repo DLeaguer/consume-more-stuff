@@ -5,7 +5,7 @@ import AddForm from './addForm.jsx'
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 function Header(props) {
-  console.log('props', props)
+  console.log('header props', props)
   return (
     <div className='Header'>
       <Router>
@@ -13,11 +13,12 @@ function Header(props) {
           <Link className='App-header' to='/viewAll'>View All</Link>
           <Link className='App-header' to='/login'>Login</Link>
           <Link className='App-header' to='/addForm'>New Bobble</Link>
-          <Route path='/viewAll' component={ViewAll}></Route>
+          <Route path='/viewAll' component={ViewAll} ></Route>
           <Route path='/login' component={Login}></Route>
-          <Route path='/addForm' component={AddForm} ></Route>
+          <Route path='/addForm' component={() =><AddForm addBobbleToList={props.addBobbleToList}/>}/> 
         </div>
       </Router>
+      {/* <AddForm addForm={props.addForm}/> */}
       {/* <ViewAll />
       <Login /> */}
     </div>

@@ -12,23 +12,25 @@ class App extends Component {
       items: []
     };
   }
-  addItemToList = (item) => {
+ 
+  addBobbleToList = (item) => {
     console.log('addItemToList item', item)
     axios
-    .post('/newCard', item)
-    .then( cardData => {
-      console.log('card data from server', cardData)
-      this.setState({ items: cardData.data})
+    .post('/newBobble', item)
+    .then( bobbleData => {
+      console.log('bobble data from server', bobbleData)
+      this.setState({ items: bobbleData.data})
     })
     .catch( err => {
       console.log('err', err)
     })
     }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <Header addForm={this.addItemToList} />
+          <Header addBobbleToList={this.addBobbleToList} />
         </header>
       </div>
     );

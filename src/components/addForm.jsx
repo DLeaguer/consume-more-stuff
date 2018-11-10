@@ -1,36 +1,40 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { isNull } from 'util';
+// import { connect } from 'react-redux';
+// import { isNull } from 'util';
+// import axios from "axios";
 
 class AddForm extends Component {
     constructor(props) {
       super(props)
       this.state = {
         title: null,
-        body: null,
-        status: null,
-        priority: null,
-        createdBy: null,
-        assignedTo: null
+        description: null,
+        price: null,
+        image: null,
+        condition: null,
+        category: null,
       }
+      console.log('addForm props', props)
     }
-  
+
+    
+
     handleSubmit = (e) => {
-      e.preventDefault();
-      console.log('submitted!', this.state)
-      this.props.editItem(this.state, this.props.id)
+        e.preventDefault();
+        console.log('submitted!', this.state)
+        this.props.addBobbleToList(this.state)
     }
-  
+    
     handleChange = (e) => {
-      e.preventDefault()
-      const { name, value } = e.target
-      this.setState({
-        [name] : value
-      })
+        e.preventDefault()
+        const { name, value } = e.target
+        this.setState({
+            [name] : value
+        })
     }
-  
+    
     render() {
-      return (
+        return (
         <form onSubmit={this.handleSubmit}>
           <label> Title:
             <input onChange={this.handleChange} type='text' name='title'></input>
@@ -41,8 +45,11 @@ class AddForm extends Component {
           <label> Price:
             <input onChange={this.handleChange} type='text' name='price'></input>
           </label>
+          <label> Image:
+            <input onChange={this.handleChange} type='text' name='image'></input>
+          </label>
           <label> Condition:
-            <select onChange={this.handleChange} type='text' name='status'>
+            <select onChange={this.handleChange} type='text' name='condition'>
               <option value=''selected disabled hidden>Selections</option>
               <option value='excellent'>Excellent</option>
               <option value='good'>Good</option>
@@ -50,7 +57,7 @@ class AddForm extends Component {
             </select>
           </label>
           <label> Category:
-            <select onChange={this.handleChange} type='text' name='priority'>
+            <select onChange={this.handleChange} type='text' name='category'>
               <option value2=''selected disabled hidden>Selections</option>
               <option value2='presidents'>Presidents</option>
               <option value2='actors'>Actors</option>
