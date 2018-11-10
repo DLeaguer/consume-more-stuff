@@ -60,6 +60,7 @@ app.post('/newUser', (req, res) => {
 })
 
 app.post('/newBobble', (req, res) => {
+  console.log('new bobble fired', req.body)
   const bobble = req.body
   const newBobble = {
     title: bobble.title,
@@ -68,8 +69,8 @@ app.post('/newBobble', (req, res) => {
     image: bobble.image,
     condition: bobble.condition,
     category: bobble.category,
-    status: bobble.status,
-    user_id: bobble.user_id,
+    // status: bobble.status,
+    // user_id: bobble.user_id,
   }
   Bobbles
   .forge(newBobble)

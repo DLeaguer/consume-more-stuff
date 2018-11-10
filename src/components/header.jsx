@@ -15,7 +15,7 @@ function Header(props) {
           <Link className='App-header' to='/addForm'>New Bobble</Link>
           <Route path='/viewAll' component={ViewAll} ></Route>
           <Route path='/login' component={Login}></Route>
-          <Route path='/addForm' component={AddForm}></Route>
+          <Route path='/addForm' component={() =><AddForm addBobbleToList={props.addBobbleToList}/>}/> 
         </div>
       </Router>
       {/* <AddForm addForm={props.addForm}/> */}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { isNull } from 'util';
-import axios from "axios";
+// import { connect } from 'react-redux';
+// import { isNull } from 'util';
+// import axios from "axios";
 
 class AddForm extends Component {
     constructor(props) {
@@ -10,29 +10,19 @@ class AddForm extends Component {
         title: null,
         description: null,
         price: null,
+        image: null,
         condition: null,
         category: null,
       }
       console.log('addForm props', props)
     }
 
-    addBobbleToList = (item) => {
-        console.log('addItemToList item', item)
-        axios
-        .post('/newUser', item)
-        .then( bobbleData => {
-          console.log('card data from server', bobbleData)
-          this.setState({ items: bobbleData.data})
-        })
-        .catch( err => {
-          console.log('err', err)
-        })
-        }
+    
 
     handleSubmit = (e) => {
         e.preventDefault();
         console.log('submitted!', this.state)
-        this.addBobbleToList(this.state, this.props.id)
+        this.props.addBobbleToList(this.state)
     }
     
     handleChange = (e) => {
@@ -54,6 +44,9 @@ class AddForm extends Component {
           </label>
           <label> Price:
             <input onChange={this.handleChange} type='text' name='price'></input>
+          </label>
+          <label> Image:
+            <input onChange={this.handleChange} type='text' name='image'></input>
           </label>
           <label> Condition:
             <select onChange={this.handleChange} type='text' name='condition'>
