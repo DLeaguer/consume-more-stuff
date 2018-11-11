@@ -3,6 +3,7 @@ import Home from './home.jsx'
 import ViewAll from './view-all.jsx'
 import Login from './login.jsx'
 import AddForm from './addForm.jsx'
+import Categories from './categories.jsx'
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 function Header(props) {
@@ -16,6 +17,7 @@ function Header(props) {
             <div className="route">
               <Link className='App-route' to='/viewAll'>View All</Link>
               <Link className='App-route' to='/addForm'>New Bobble</Link>
+              <Link className='App-route' to='/categories'>Categories</Link>
             </div>
               <Link className='App-task' to='/login'>Login</Link>
           </header>
@@ -25,6 +27,7 @@ function Header(props) {
           <Route path='/' component={Home}></Route>
           <Route path='/viewAll' component={() => <ViewAll bobbles={props.bobbles} />}/>
           <Route path='/addForm' component={() =><AddForm addBobbleToList={props.addBobbleToList}/>}/> 
+          <Route path='/categories' component={Categories}></Route>
           <Route path='/login' component={Login}></Route>
         </div>
       </Router>
