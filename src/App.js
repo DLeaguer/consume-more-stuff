@@ -39,13 +39,24 @@ class App extends Component {
     })
     }
 
+
+    deleteBobbleFromList = (id) => {
+      axios
+      .delete(`/deleteBobble/${id}`)
+      .then( deleteResult => {
+        console.log('deleteResult', deleteResult)
+        this.setState({ items: deleteResult.data})
+      })
+      console.log('delete attempt')
+    }
+
     
     render() {
       // this.getBobbles()
       return (
       <div className="App">
         <header className="App-header">
-          <Header addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} />
+          <Header addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} deleteBobble={this.deleteBobbleFromList} />
         </header>
       </div>
     );

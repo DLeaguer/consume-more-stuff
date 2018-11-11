@@ -20,9 +20,9 @@ img {
   flex-direction: row;
   justify-content: space-between;
   height: 80px;
-  box-shadow: 3px 3px 8xp 3xp #999999;
   color: #cccccc;
   font-size: 100%;
+  box-shadow: 10px 5px 5px black;;
 }
 
 .App-title {
@@ -61,6 +61,11 @@ img {
   margin: 25px 12px 0px 0px;
 }
 
+.bobbleCards {
+  border: 1px solid black;
+  margin: 15px 15px;
+  padding: 5px;
+}
 
 
 

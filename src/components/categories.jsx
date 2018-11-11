@@ -10,14 +10,9 @@ function Header(props) {
     <div className='App'>
       <Router>
         <div>
-          <header className="App-header">
-            
-            <div className="route">
               <Link className='App-route' to='/singers'>Singers</Link>
               <Link className='App-route' to='/actors'>Actors</Link>
               <Link className='App-route' to='/presidents'>Presidents</Link>
-            </div>
-          </header>
 
           <hr/>
 
