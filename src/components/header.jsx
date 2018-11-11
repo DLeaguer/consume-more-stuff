@@ -1,4 +1,5 @@
 import React from 'react'
+import Home from './home.jsx'
 import ViewAll from './view-all.jsx'
 import Login from './login.jsx'
 import AddForm from './addForm.jsx'
@@ -7,20 +8,26 @@ import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 function Header(props) {
   console.log('header props', props)
   return (
-    <div className='Header'>
+    <div className='App'>
       <Router>
         <div>
-          <Link className='App-header' to='/viewAll'>View All</Link>
-          <Link className='App-header' to='/login'>Login</Link>
-          <Link className='App-header' to='/addForm'>New Bobble</Link>
+          <header className="App-header">
+            <Link className='App-title' to='/' activeclassname='App-title-active'>BOBBLE BAY</Link>
+            <div className="route">
+              <Link className='App-route' to='/viewAll'>View All</Link>
+              <Link className='App-route' to='/addForm'>New Bobble</Link>
+            </div>
+              <Link className='App-task' to='/login'>Login</Link>
+          </header>
+
+          <hr/>
+
+          <Route path='/' component={Home}></Route>
           <Route path='/viewAll' component={() => <ViewAll bobbles={props.bobbles} />}/>
-          <Route path='/login' component={Login}></Route>
           <Route path='/addForm' component={() =><AddForm addBobbleToList={props.addBobbleToList}/>}/> 
+          <Route path='/login' component={Login}></Route>
         </div>
       </Router>
-      {/* <AddForm addForm={props.addForm}/> */}
-      {/* <ViewAll />
-      <Login /> */}
     </div>
   )
 }

@@ -1,4 +1,72 @@
 .App {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+  /* border: 10px solid blue; */
+  margin: 0px;
+  padding: 0px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.App-header {
+  /* border: 5px solid red; */
+  width: 100%;
+  background-color: #cccccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40px;
+  color: #cccccc;
+  font-size: 80%;
+}
+
+.App-title {
+  /* border: 1px solid white; */
+  margin: 12px 12px 12px 12px;
+  /* color: #cccccc; */
+}
+
+.App-route {
+  /* border: 1px solid white; */
+  margin: 12px 12px 12px 12px;
+  /* color: #cccccc; */
+}
+
+.App-title-active {
+  color: red;
+  font-weight: bold;
+}
+
+.route {
+  /* border: 1px solid #3e3e3e; */
+  display: flex;
+  flex-direction: row;
+  /* margin: 0px; */
+}
+
+.App-cards {
+  /* border: 1px solid white; */
+  margin: 12px 0px 12px 12px;
+  color: #cccccc;
+}
+
+.App-task {
+  border: 1px solid #3e3e3e;
+  padding: 3px 10px 0px 10px;
+  margin: 8px 8px 8px 0px;
+}
+
+
+
+
+
+
+
+/* .App {
   text-align: center;
   height: 500px;
 }
@@ -30,4 +98,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
