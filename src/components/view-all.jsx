@@ -3,7 +3,9 @@ import React from 'react'
 function ViewAll(props) {
   console.log('view all props', props)
   return (
-    <div>View all component</div>
+    props.bobbles.map(item => <div>{item.title} <br/> {item.description}</div>)
+   
+    
   )
 }
 

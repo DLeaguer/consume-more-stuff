@@ -13,7 +13,7 @@ function Header(props) {
           <Link className='App-header' to='/viewAll'>View All</Link>
           <Link className='App-header' to='/login'>Login</Link>
           <Link className='App-header' to='/addForm'>New Bobble</Link>
-          <Route path='/viewAll' component={ViewAll} ></Route>
+          <Route path='/viewAll' component={() => <ViewAll bobbles={props.bobbles} />}/>
           <Route path='/login' component={Login}></Route>
           <Route path='/addForm' component={() =><AddForm addBobbleToList={props.addBobbleToList}/>}/> 
         </div>

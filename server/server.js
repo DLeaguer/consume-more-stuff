@@ -35,6 +35,7 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/bobbles', (req, res) => {
+  console.log('server get bobbles fired')
   Bobbles
   .fetchAll()
   .then( items => {
