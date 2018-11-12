@@ -15,8 +15,7 @@ function Header(props) {
               <Link className='App-route' to='/presidents'>Presidents</Link>
 
           <hr/>
-
-          <Route path='/singers' component={Singers}></Route>
+          <Route path='/singers' component={ () => <Singers bobbles={props.bobbles} />}></Route>
           <Route path='/actors' component={Actors}></Route>
           <Route path='/presidents' component={Presidents}></Route>
         </div>
