@@ -2,6 +2,8 @@ import React from 'react'
 
 function Singers(props) {
   console.log('Singers props.bobbles', props.bobbles)
+  console.log('Singers props.bobbles.category', props.bobbles.category)
+  // if (props.bobbles.categories === actors)
   return (
     // <div>Singers Component</div>
     props.bobbles.map(item => <div
