@@ -4,7 +4,7 @@ function Singers(props) {
   console.log('Singers props', props)
   console.log()
   return (
-    props.bobbles.filter(item => item.condition === 'excellent').map(item => <div> {item.title}</div>)
+    props.bobbles.filter(item => item.category === 'Singers').map(item => <div><a href={item.image} target='blank'><img src={item.image} alt="bobblehead.png" /></a> {item.title}</div>)
   )
   }
 
