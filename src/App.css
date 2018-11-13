@@ -6,6 +6,10 @@
   margin: 0px;
   padding: 0px;
 }
+/* 
+.App:hover {
+  color: salmon;
+} */
 
 img {
   width: 70px;
@@ -24,6 +28,10 @@ img {
   font-size: 100%;
   box-shadow: 10px 5px 5px black;;
 }
+/* 
+.App-header:hover {
+  color: salmon;
+} */
 
 .App-title {
   /* border: 1px solid white; */
@@ -49,6 +57,17 @@ img {
   margin-top: 20px;
 }
 
+.catLink {
+  /* border: 1px solid red; */
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+}
+
+.catRoute {
+  border: blue;
+}
+
 .App-cards {
   /* border: 1px solid white; */
   margin: 12px 0px 12px 12px;
@@ -67,7 +86,35 @@ img {
   padding: 5px;
 }
 
+.addFormPage {
+  padding: 15px;
+  background-color: paleturquoise;
+  height: 100%;
+  color: #3e3e3e;
+}
 
+.addFormContainer {
+  border: 1px solid blue;
+  /* margin: 0% 43%; */
+  width: 400px;
+  margin: auto;
+  padding: 20px 15px;
+  background-color: #ddd;
+  box-shadow: 2px 2px 8px 2px #ccc;
+  border-radius: 15px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-content: center; */
+}
+
+input {
+  width: 90%;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
 
 
 
