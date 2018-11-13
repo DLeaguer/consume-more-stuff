@@ -6,6 +6,10 @@
   margin: 0px;
   padding: 0px;
 }
+/* 
+.App:hover {
+  color: salmon;
+} */
 
 img {
   width: 70px;
@@ -24,6 +28,10 @@ img {
   color: #cccccc;
   font-size: 100%;
 }
+/* 
+.App-header:hover {
+  color: salmon;
+} */
 
 .App-title {
   /* border: 1px solid white; */
@@ -47,6 +55,17 @@ img {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
+}
+
+.catLink {
+  /* border: 1px solid red; */
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+}
+
+.catRoute {
+  border: blue;
 }
 
 .App-cards {

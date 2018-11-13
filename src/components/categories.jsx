@@ -10,9 +10,9 @@ function Header(props) {
     <div className='App'>
       <Router>
         <div>
-          <header className="App-header">
+          <header className="">
             
-            <div className="route">
+            <div className="catLink">
               <Link className='App-route' to='/singers'>Singers</Link>
               <Link className='App-route' to='/actors'>Actors</Link>
               <Link className='App-route' to='/presidents'>Presidents</Link>
@@ -20,10 +20,11 @@ function Header(props) {
           </header>
 
           <hr/>
-
-          <Route path='/singers' component={Singers}></Route>
-          <Route path='/actors' component={Actors}></Route>
-          <Route path='/presidents' component={Presidents}></Route>
+          <div className="catRoute">
+              <Route path='/singers' component={Singers}></Route>
+              <Route path='/actors' component={Actors}></Route>
+              <Route path='/presidents' component={Presidents}></Route>
+          </div>
         </div>
       </Router>
     </div>
