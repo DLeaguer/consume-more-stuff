@@ -20,7 +20,7 @@ function Header(props) {
               <br/>
               <div className='catLink'>
                 <Link className='App-route' to='/categories'>Categories</Link>
-                <Route path='/categories' component={Categories}></Route>
+                <Route path='/categories' component={ () => <Categories bobbles={props.bobbles}/>}></Route>
               </div>
             </div>
               <Link className='App-task' to='/login'>Login</Link>
