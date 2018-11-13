@@ -21,9 +21,9 @@ function Header(props) {
 
           <hr/>
           <div className="catRoute">
-              <Route path='/singers' component={Singers}></Route>
-              <Route path='/actors' component={Actors}></Route>
-              <Route path='/presidents' component={Presidents}></Route>
+              <Route path='/singers' component={ () => <Singers bobbles={props.bobbles}/>}></Route>
+              <Route path='/actors' component={ () => <Actors bobbles={props.bobbles}/>}></Route>
+              <Route path='/presidents' component={ () => <Presidents bobbles={props.bobbles}/>}></Route>
           </div>
         </div>
       </Router>
