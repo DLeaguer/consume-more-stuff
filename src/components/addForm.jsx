@@ -35,43 +35,48 @@ class AddForm extends Component {
     
     render() {
         return (
-        <form onSubmit={this.handleSubmit}>
-          <br/>
-          <div className="addForm">
-            <label> Title: <br/> <input onChange={this.handleChange} type='text' name='title' placeholder='title...'></input>
-            </label>
-            <br/>
-            <label> Description: <br/> <input onChange={this.handleChange} type='text' name='description' placeholder='description...'></input>
-            </label>
-            <br/>
-            <label> Price: <br/> <input onChange={this.handleChange} type='text' name='price' placeholder='price...'></input>
-            </label>
-            <br/>
-            <label> Image: <br/> <input onChange={this.handleChange} type='text' name='image' placeholder='image...'></input>
-            </label>
-            <br/>
-            <label> Condition: <br/> 
-              <select onChange={this.handleChange} type='text' name='condition'>
-                <option value=''selected disabled hidden>Selections</option>
-                <option value='excellent'>Excellent</option>
-                <option value='good'>Good</option>
-                <option value='poor'>Poor</option>
-              </select>
-            </label>
-            <br/>
-            <label> Category: <br/>
-              <select onChange={this.handleChange} type='text' name='category'>
-                <option value2=''selected disabled hidden>Selections</option>
-                <option value2='presidents'>Presidents</option>
-                <option value2='actors'>Actors</option>
-                <option value2='singers'>Singers</option>
-              </select>
-            </label>
-            <br/><br/>
-            <button type='submit'>Create</button>
-            <br/>
+          <div className="addFormPage">
+            <h1>
+              Add New Bobble
+            </h1>
+            <div className="addFormContainer">
+              <form onSubmit={this.handleSubmit}>
+                <br/>
+                  <label> Title: <br/> <input onChange={this.handleChange} type='text' name='title' placeholder='title...'></input>
+                  </label>
+                  <br/>
+                  <label> Description: <br/> <input onChange={this.handleChange} type='text' name='description' placeholder='description...'></input>
+                  </label>
+                  <br/>
+                  <label> Price: <br/> <input onChange={this.handleChange} type='text' name='price' placeholder='price...'></input>
+                  </label>
+                  <br/>
+                  <label> Image: <br/> <input onChange={this.handleChange} type='text' name='image' placeholder='image url...'></input>
+                  </label>
+                  <br/>
+                  <label> Condition: <br/> 
+                    <select onChange={this.handleChange} type='text' name='condition'>
+                      <option value=''selected disabled hidden>Selections</option>
+                      <option value='excellent'>Excellent</option>
+                      <option value='good'>Good</option>
+                      <option value='poor'>Poor</option>
+                    </select>
+                  </label>
+                  <br/><br/>
+                  <label> Category: <br/>
+                    <select onChange={this.handleChange} type='text' name='category'>
+                      <option value2=''selected disabled hidden>Selections</option>
+                      <option value2='presidents'>Presidents</option>
+                      <option value2='actors'>Actors</option>
+                      <option value2='singers'>Singers</option>
+                    </select>
+                  </label>
+                  <br/><br/>
+                  <button type='submit'>Create</button>
+                  <br/>
+              </form>
+            </div>
           </div>
-        </form>
       )
     }
   }
