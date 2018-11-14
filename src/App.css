@@ -7,9 +7,19 @@
   padding: 0px;
 }
 
-img {
+.headerImg {
   width: 70px;
   height: 70px;
+}
+
+.homeImg {
+  width: 500px;
+  height: 500px;
+}
+
+.catImg {
+  width: 10%;
+  height: 10%;
 }
 
 .App-header {
@@ -46,7 +56,32 @@ img {
   /* border: 1px solid #3e3e3e; */
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-top: 25px;
+}
+
+.catHeader {
+  border: 1px solid red;
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+  margin: 12px 12px 12px 12px;
+  /* color: #3e3e3e; */
+}
+
+.catHide {
+  border: purple;
+  display: none;
+  flex-direction: column;
+}
+
+.catLink:hover .catHide {
+  border: green;
+  display: block;
+  flex-direction: column;
+}
+
+.catRoute {
+  border: blue;
 }
 
 .App-cards {

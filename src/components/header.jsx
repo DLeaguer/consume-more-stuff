@@ -13,18 +13,26 @@ function Header(props) {
       <Router>
         <div>
           <header className="App-header">
-            <Link className='App-title' to='/' activeclassname='App-title-active'> <a href="https://giphy.com/gifs/puppy-black-and-white-2FhASosZtLUPe" target='blank'><img src={require('../BobbleBay.png')} alt="BobbleBay" /></a></Link>
+            <Link className='App-title' to='/' activeclassname='App-title-active'> <a href="https://giphy.com/gifs/puppy-black-and-white-2FhASosZtLUPe" target='blank'><img  className='headerImg'src={require('../BobbleBay.png')} alt="BobbleBay" /></a></Link>
             <div className="route">
-              <Link className='App-route' to='/viewAll'>View All</Link>
-              <Link className='App-route' to='/addForm'>New Bobble</Link>
-              <Link className='App-route' to='/categories'>Categories</Link>
+              <div>
+                <Link className='App-route' to='/viewAll'>View All</Link>
+              </div>
+              <div>
+                <Link className='App-route' to='/addForm'>New Bobble</Link>
+              </div>
+              <br/>
+              <div className='catLink'>
+                <Link className='App-route' to='/categories'>Categories</Link>
+                <Route path='/categories' component={ () => <Categories bobbles={props.bobbles}/>}></Route>
+              </div>
             </div>
               <Link className='App-task' to='/login'>Login</Link>
           </header>
 
           <hr/>
 
-          <Route path='/' component={Home}></Route>
+          <Route exact path='/' component={Home}></Route>
           <Route path='/viewAll' component={() => <ViewAll bobbles={props.bobbles} deleteBobble={props.deleteBobble}/>}/>
           <Route path='/addForm' component={() =><AddForm addBobbleToList={props.addBobbleToList}/>}/> 
   <Route path='/categories' component={() => <Categories bobbles={props.bobbles}/>} /> 
