@@ -24,7 +24,7 @@ function Header(props) {
               <br/>
               <div className='catLink'>
                 <Link className='App-route' to='/categories'>Categories</Link>
-                <Route path='/categories' component={ () => <Categories bobbles={props.bobbles}/>}></Route>
+                {/* <Route path='/categories' component={ () => <Categories bobbles={props.bobbles}/>}></Route> */}
               </div>
             </div>
               <Link className='App-task' to='/login'>Login</Link>
@@ -35,7 +35,7 @@ function Header(props) {
           <Route exact path='/' component={Home}></Route>
           <Route path='/viewAll' component={() => <ViewAll bobbles={props.bobbles} deleteBobble={props.deleteBobble}/>}/>
           <Route path='/addForm' component={() =><AddForm addBobbleToList={props.addBobbleToList}/>}/> 
-          {/* <Route path='/categories' component={() => <Categories bobbles={props.bobbles}/>} />  */}
+          <Route path='/categories' component={() => <Categories bobbles={props.bobbles}/>} /> 
           <Route path='/login' component={Login}></Route>
         </div>
       </Router>
