@@ -3,7 +3,7 @@ import React from 'react'
 function Singers(props) {
   console.log('Singers props', props)
   return (
-    props.bobbles.filter(item => item.category === 'Singers').map(item => <div><a href={item.image} target='blank'><img src={item.image} alt="bobblehead.png" /></a> {item.title}</div>)
+    props.bobbles.filter(item => item.category === 'Singers').map(item => <div><br/><br/>Singer<br/><br/><a href={item.image} target='blank'><img className='catImg' src={item.image} alt="bobblehead.png" /></a> {item.title}</div>)
   )
 }
 

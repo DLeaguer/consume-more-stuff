@@ -4,7 +4,7 @@ import Actors from './actors.jsx'
 import Presidents from './presidents.jsx'
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
-function Header(props) {
+function Categories(props) {
   console.log('header props', props)
   return (
     <div className='App'>
@@ -12,11 +12,13 @@ function Header(props) {
         <div>
           <header className="">
             
-            <div className="catLink">
-              <Link className='App-route' to='/singers'>Singers</Link>
-              <Link className='App-route' to='/actors'>Actors</Link>
-              <Link className='App-route' to='/presidents'>Presidents</Link>
-            </div>
+            {/* <div className="catLink"> */}
+              {/* <div className="catHide" style={catHideStyle}> */}
+                <Link className='App-route' to='/singers'>Singers</Link>
+                <Link className='App-route' to='/actors'>Actors</Link>
+                <Link className='App-route' to='/presidents'>Presidents</Link>
+              {/* </div> */}
+            {/* </div> */}
           </header>
 
           <hr/>
@@ -31,4 +33,4 @@ function Header(props) {
   )
 }
 
-export default Header;
+export default Categories;
