@@ -17,6 +17,7 @@
 }
 
 .homeImg {
+  margin: 5% 30%;
   width: 500px;
   height: 500px;
 }
@@ -76,28 +77,25 @@
   /* color: #3e3e3e; */
 }
 
-.catHide {
-  border: purple;
-  display: none;
+.catLink {
+  border: 1px solid green;
+  background-color: orange;
+  display: flex;
   flex-direction: column;
+  margin: 12px 12px 12px 12px;
+  /* color: #3e3e3e; */
 }
 
 .catLink:hover .catHide {
-  border: green;
+  /* border: green; */
   display: block;
   flex-direction: column;
 }
 
-.catRoute {
-  border: blue;
-}
-
-.catLink {
-  /* border: 1px solid red; */
-  background-color: orange;
-  display: flex;
+.catHide {
+  border: purple;
+  display: none;
   flex-direction: column;
-  /* color: #3e3e3e; */
 }
 
 .catRoute {
