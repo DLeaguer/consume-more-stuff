@@ -12,6 +12,11 @@ img {
   height: 70px;
 }
 
+.catImg {
+  width: 10%;
+  height: 10%;
+}
+
 .App-header {
   /* border: 5px solid red; */
   width: 100%;
