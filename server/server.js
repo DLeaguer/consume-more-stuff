@@ -162,6 +162,7 @@ app.put("/editUser/:id", (req, res) => {
 
 
 app.put("/editBobble/:id", (req, res) => {
+  console.log('edit bobble fired')
   const updatedBobble = {
     title: req.body.title,
     description: req.body.description,

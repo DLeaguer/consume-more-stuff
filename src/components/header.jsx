@@ -33,7 +33,7 @@ function Header(props) {
           <hr/>
 
           <Route exact path='/' component={Home}></Route>
-          <Route path='/viewAll' component={() => <ViewAll bobbles={props.bobbles} deleteBobble={props.deleteBobble}/>}/>
+          <Route path='/viewAll' component={() => <ViewAll bobbles={props.bobbles} deleteBobble={props.deleteBobble} editBobble={props.editBobble}/>}/>
           <Route path='/addForm' component={() =><AddForm addBobbleToList={props.addBobbleToList}/>}/> 
           <Route path='/categories' component={() => <Categories bobbles={props.bobbles}/>} /> 
           <Route path='/login' component={Login}></Route>

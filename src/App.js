@@ -50,13 +50,29 @@ class App extends Component {
       console.log('delete attempt')
     }
 
+    editItemInList = (editItem, id) => {
+      console.log('edit item id', id);
+      console.log('editItem', editItem)
+      axios
+      .put(`/editBobble/${id}`, editItem)
+      .then(editServerData => {
+        this.setState({ items: editServerData.data })
+      })
+      .catch(err => {
+        console.log("Error PUT/editTask:", err);
+      })
+    }
+
+    redirectEdit = () => {
+      
+    }
     
     render() {
       // this.getBobbles()
       return (
       <div className="App">
         <header className="App-header">
-          <Header addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} deleteBobble={this.deleteBobbleFromList} />
+          <Header addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} deleteBobble={this.deleteBobbleFromList} editBobble={this.editItemInList}/>
         </header>
       </div>
     );
