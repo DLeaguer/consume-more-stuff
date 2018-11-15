@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
         title: "President Obama",
         description: "Prez Obama bobble head",
         price: 15,
-        image: "https://papundits.files.wordpress.com/2011/08/obama-bobblehead.gif",
+        image: "http://2.bp.blogspot.com/-adgrscmCXE0/TkQZfcNvsII/AAAAAAAADZ4/zVuhxKU2h3w/s1600/obama+-+-bobblehead.gif",
         condition: "Excellent",
         category: "Presidents",
         status: true,
