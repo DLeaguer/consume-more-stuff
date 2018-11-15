@@ -64,7 +64,7 @@ class App extends Component {
     }
 
     redirectEdit = () => {
-      
+
     }
     
     render() {

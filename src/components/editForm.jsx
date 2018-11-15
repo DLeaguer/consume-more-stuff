@@ -54,10 +54,10 @@ class EditForm extends Component {
         </label>
         <label> Category:
           <select onChange={this.handleChange} type='text' name='category'>
-            <option value2='President'>President</option>
             <option value2=''selected disabled hidden>Selections</option>
-            <option value2='Actor'>Actor</option>
-            <option value2='Singer'>Singer</option>
+            <option value2='Presidents'>President</option>
+            <option value2='Actors'>Actor</option>
+            <option value2='Singers'>Singer</option>
           </select>
         </label>
         <button type='submit'>Edit</button>

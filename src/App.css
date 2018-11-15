@@ -150,7 +150,9 @@ input {
   margin-bottom: 15px;
 }
 
-
+#editFormTitle {
+  font-weight: bold;
+}
 
 
 /* .App {
