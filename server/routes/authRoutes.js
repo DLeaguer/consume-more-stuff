@@ -26,7 +26,23 @@ route.post('/register', (req, res) => {
 })
 
 route.post('/login', (req, res) => {
-
+  const { email, password } = req.body;
+  Users
+    .where( { email: email})
+    .fetch()
+    .then( user => {
+      if (password === user.attributes.password) {
+        res.send('authRoutes.js POST/login SUCCESSFUL!!')
+      }
+      else {
+        res.send('WRONG EMAIL OR PASSWORD!!!')
+      }
+    })
+    .catch( err => {
+      console.log('err', err)
+      // logger.error(err)
+      res.send(err)
+    })
 })
 
 route.get('/login', (req, res) => {
