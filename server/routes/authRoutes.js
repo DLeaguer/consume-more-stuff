@@ -1,6 +1,7 @@
 const express = require('express');
 const route = express.Router();
 const Users = require('../db/models/users.js')
+// eslint-disable-next-line to the line before
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const bcrypt = require('bcrypt');
