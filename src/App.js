@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/header.jsx'
 import axios from "axios";
 
+// const route = express.Router();
 
 class App extends Component {
   constructor(props) {
@@ -59,20 +60,27 @@ class App extends Component {
         this.setState({ items: editServerData.data })
       })
       .catch(err => {
-        console.log("Error PUT/editTask:", err);
+        console.log("Error PUT", err);
       })
     }
 
-    redirectEdit = () => {
-
+    registerUser = (newUser) => {
+      console.log('new user', newUser);
+      axios
+      .post('auth/register', newUser)
+      .then(userData => {
+        console.log('auth data coming back', userData);
+      })
+      .catch(err => {
+        console.log("Error register user", err);
+      })
     }
     
     render() {
-      // this.getBobbles()
       return (
       <div className="App">
         <header className="App-header">
-          <Header addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} deleteBobble={this.deleteBobbleFromList} editBobble={this.editItemInList}/>
+          <Header addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} deleteBobble={this.deleteBobbleFromList} editBobble={this.editItemInList} registerUser={this.registerUser}/>
         </header>
       </div>
     );

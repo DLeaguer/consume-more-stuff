@@ -4,6 +4,7 @@ import ViewAll from './view-all.jsx'
 import Login from './login.jsx'
 import AddForm from './addForm.jsx'
 import Categories from './categories.jsx'
+import Register from './register.jsx'
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 function Header(props) {
@@ -28,6 +29,7 @@ function Header(props) {
               </div>
             </div>
               <Link className='App-task' to='/login'>Login</Link>
+              <Link className='App-task' to='/register'>Register</Link>
           </header>
 
           <hr/>
@@ -37,6 +39,7 @@ function Header(props) {
           <Route path='/addForm' component={() =><AddForm addBobbleToList={props.addBobbleToList}/>}/> 
           <Route path='/categories' component={() => <Categories bobbles={props.bobbles}/>} /> 
           <Route path='/login' component={Login}></Route>
+          <Route path='/register' component={() =><Register registerUser={props.registerUser}/>}></Route>
         </div>
       </Router>
     </div>

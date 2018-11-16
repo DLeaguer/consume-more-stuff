@@ -13,7 +13,7 @@ route.post('/register', (req, res) => {
     .save()
     .then( result => {
       if (result) {
-        res.send('authRoutes.js POST/register NEW USER MADE!!!')
+        res.json(result)
       }
       else {
         res.send('ERROR MAKING USER authRoutes.js POST/register ')
