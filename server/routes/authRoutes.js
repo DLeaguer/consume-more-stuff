@@ -32,6 +32,7 @@ route.post('/login', (req, res) => {
     .fetch()
     .then( user => {
       if (password === user.attributes.password) {
+        req.session.isLoggedIn = true
         res.send('authRoutes.js POST/login SUCCESSFUL!!')
       }
       else {
@@ -50,11 +51,17 @@ route.get('/login', (req, res) => {
 })
 
 route.post('/logout', (req, res) => {
-
+  req.session.destroy()
+  res.send('LOGGED OUT!!')
 })
 
 route.get('/protected', (req, res) => {
-  res.send('authRoutes.js GET/protected')
+  if (req.session.isLoggedIn) {
+    res.send('AUTHORIZED authRoutes.js GET/protected Successful')
+  }
+  else {
+    res.send('NOT AUTHORIZED authRoutes.js GET/protected Not Successful')
+  }
 })
 
 module.exports = route
