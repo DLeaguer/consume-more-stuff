@@ -8,6 +8,7 @@ const RedisStore = require('connect-redis')(session);
 const Users = require('./db/models/users.js');
 const Bobbles = require('./db/models/bobbles.js');
 const AuthRoutes = require('./routes/authRoutes.js')
+const passport = require('passport');
 
 //Routes
 // const users = require('./routes/users.js')
@@ -23,7 +24,8 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, '../build')))
-
+app.use(passport.initialize());
+app.use(passport.session());
 app.use('/auth', AuthRoutes)
 
 
