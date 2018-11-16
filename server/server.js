@@ -5,19 +5,36 @@ const PORT = process.env.EXPRESS_CONTAINER_PORT || 9999
 const bodyParser = require("body-parser");
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
-const Users = require('./db/models/users.js')
-const Bobbles = require('./db/models/bobbles.js')
+const Users = require('./db/models/users.js');
+const Bobbles = require('./db/models/bobbles.js');
+const AuthRoutes = require('./routes/authRoutes.js')
 
 //Routes
 // const users = require('./routes/users.js')
 // const bobbles = require('./routes/bobbles.js')
 
+app.use(session({
+  store: new RedisStore({url: 'redis://redis-session-store:6379', logErrors: true}),
+  secret: 'pancake',
+  resave: false,
+  saveUninitialized: true
+}))
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, '../build')))
 
+app.use('/auth', AuthRoutes)
+
 
 app.get('/', (req, res) => {
+  if (!req.session.viewCount) {
+    req.session.viewCount = 1
+  }
+  else {
+    req.session.viewCount++
+  }
+  console.log('req.session', req.session)
   // res.sendFile('../public/index.html')
   res.send('Hello from server.js get"/"')
 })
