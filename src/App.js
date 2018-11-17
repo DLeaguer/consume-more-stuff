@@ -87,12 +87,24 @@ class App extends Component {
         console.log("Error login user", err);
       })
     }
+
+    logoutUser = () => {
+      console.log('App.js logoutUser Data CS fired!!!')
+      axios
+      .get('auth/logout')
+      .then(logoutData => {
+        console.log('logoutUser data coming back!!!\n', logoutData);
+      })
+      .catch(err => {
+        console.log('Error App.js logoutUser!!!!!\n', err)
+      })
+    }
     
     render() {
       return (
       <div className="App">
         <header className="App-header">
-          <Header addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} deleteBobble={this.deleteBobbleFromList} editBobble={this.editItemInList} registerUser={this.registerUser} loginUser={this.loginUser}/>
+          <Header addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} deleteBobble={this.deleteBobbleFromList} editBobble={this.editItemInList} registerUser={this.registerUser} loginUser={this.loginUser} logoutUser={this.logoutUser}/>
         </header>
       </div>
     );

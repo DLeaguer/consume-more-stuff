@@ -38,15 +38,20 @@ passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done)
       console.log('user in local strategy', user)
       user = user.toJSON();
       // if (user.password === password) {
-      //   done(null, user )
-      // } else {
-      //   done(null, false)
-      // }
-      bcrypt.compare(password, user.password)
-        .then( res => {
-          if (res) {
-            done(null, user)
+        //   done(null, user )
+        // } else {
+          //   done(null, false)
+          // }
+          console.log('authRoutes.js passport.use login user.ToJSON', user)
+          bcrypt.compare(password, user.password)
+          .then( res => {
+            console.log('authRoutes.js passport.use login after bcrypt!!!\n', res)
+            
+            if (res) {
+              console.log('authRoutes.js passport.use login after success!!!!\n')
+              done(null, user)
           } else {
+            console.log('authRoutes.js passport.use login after failure!!!\n')
             done(null, false)
           }
         })
@@ -88,13 +93,15 @@ route.post('/register', (req, res) => {
 })
 
 route.post('/login', passport.authenticate('local', {failureRedirect: '/'}), (req, res) => {
+  console.log('authRoutes.js POST/login!!!')
   // grab the user on record
   // compare req.body.password to password on record
 
   res.send('YAY IM IN!!!!')
 })
 
-route.post('/logout', (req, res) => {
+route.get('/logout', (req, res) => {
+  console.log('auth logout!!!')
   req.logout()
   res.redirect('/')
 })

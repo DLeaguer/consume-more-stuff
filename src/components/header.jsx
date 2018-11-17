@@ -2,6 +2,7 @@ import React from 'react'
 import Home from './home.jsx'
 import ViewAll from './view-all.jsx'
 import Login from './login.jsx'
+import Logout from './logout.jsx'
 import AddForm from './addForm.jsx'
 import Categories from './categories.jsx'
 import Register from './register.jsx'
@@ -29,6 +30,7 @@ function Header(props) {
               </div>
             </div>
               <Link className='App-task' to='/login'>Login</Link>
+              <Link className='App-task' to='/logout'>Logout</Link>
               <Link className='App-task' to='/register'>Register</Link>
           </header>
 
@@ -39,6 +41,7 @@ function Header(props) {
           <Route path='/addForm' component={() =><AddForm addBobbleToList={props.addBobbleToList}/>}/> 
           <Route path='/categories' component={() => <Categories bobbles={props.bobbles}/>} /> 
           <Route path='/login' component={() => <Login loginUser={props.loginUser}/>} />
+          <Route path='/logout' component={() => <Logout logoutUser={props.logoutUser}/>} />
           <Route path='/register' component={() =><Register registerUser={props.registerUser}/>}></Route>
         </div>
       </Router>
