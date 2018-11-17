@@ -75,12 +75,24 @@ class App extends Component {
         console.log("Error register user", err);
       })
     }
+
+    loginUser = (userData) => {
+      console.log('new user', userData);
+      axios
+      .post('auth/login', userData)
+      .then(userData => {
+        console.log('user data coming back', userData);
+      })
+      .catch(err => {
+        console.log("Error login user", err);
+      })
+    }
     
     render() {
       return (
       <div className="App">
         <header className="App-header">
-          <Header addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} deleteBobble={this.deleteBobbleFromList} editBobble={this.editItemInList} registerUser={this.registerUser}/>
+          <Header addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} deleteBobble={this.deleteBobbleFromList} editBobble={this.editItemInList} registerUser={this.registerUser} loginUser={this.loginUser}/>
         </header>
       </div>
     );

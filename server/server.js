@@ -90,31 +90,34 @@ app.post('/newUser', (req, res) => {
 
 app.post('/newBobble', (req, res) => {
   console.log('new bobble fired', req.body)
-  const bobble = req.body
-  const newBobble = {
-    title: bobble.title,
-    description: bobble.description,
-    price: bobble.price,
-    image: bobble.image,
-    condition: bobble.condition,
-    category: bobble.category,
-    // status: bobble.status,
-    // user_id: bobble.user_id,
+  console.log('isLoggedIn', req.session.isLoggedIn)
+  if(req.session.isLoggedIn) {
+    const bobble = req.body
+    const newBobble = {
+      title: bobble.title,
+      description: bobble.description,
+      price: bobble.price,
+      image: bobble.image,
+      condition: bobble.condition,
+      category: bobble.category,
+      // status: bobble.status,
+      // user_id: bobble.user_id,
+    }
+    Bobbles
+    .forge(newBobble)
+    .save()
+    .then( () => {
+      return Bobbles
+      .fetchAll()
+      .then( result => {
+        res.json(result.serialize())
+      })
+      .catch( err => {
+        console.log('err server.js POST/newBobble', err)
+        res.json(err)
+      })
+    })
   }
-  Bobbles
-  .forge(newBobble)
-  .save()
-  .then( () => {
-    return Bobbles
-    .fetchAll()
-    .then( result => {
-      res.json(result.serialize())
-    })
-    .catch( err => {
-      console.log('err server.js POST/newBobble', err)
-      res.json(err)
-    })
-  })
 })
 
 app.delete('/deleteUser/:id', (req, res) => {
