@@ -9,6 +9,7 @@ const Users = require('./db/models/users.js');
 const Bobbles = require('./db/models/bobbles.js');
 const AuthRoutes = require('./routes/authRoutes.js')
 const passport = require('passport');
+// const isAuthenticated = require('./authenticated')
 
 //Routes
 // const users = require('./routes/users.js')
@@ -90,8 +91,6 @@ app.post('/newUser', (req, res) => {
 
 app.post('/newBobble', (req, res) => {
   console.log('new bobble fired', req.body)
-  console.log('isLoggedIn', req.session.isLoggedIn)
-  if(req.session.isLoggedIn) {
     const bobble = req.body
     const newBobble = {
       title: bobble.title,
@@ -117,7 +116,6 @@ app.post('/newBobble', (req, res) => {
         res.json(err)
       })
     })
-  }
 })
 
 app.delete('/deleteUser/:id', (req, res) => {

@@ -30,7 +30,9 @@ function Header(props) {
               </div>
             </div>
               <Link className='App-task' to='/login'>Login</Link>
-              <Link className='App-task' to='/logout'>Logout</Link>
+              <Link className='App-task' to='/'>
+              <div onClick={props.logoutUser}>Logout</div>
+              </Link>
               <Link className='App-task' to='/register'>Register</Link>
           </header>
 

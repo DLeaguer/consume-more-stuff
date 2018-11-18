@@ -81,7 +81,10 @@ class App extends Component {
       axios
       .post('auth/login', userData)
       .then(userData => {
-        console.log('user data coming back', userData);
+        const email = JSON.parse(userData.config.data).email
+        console.log('email for auth login user', email)
+        console.log('user data coming back', JSON.parse(userData.config.data).email);
+        localStorage.setItem('email', email)
       })
       .catch(err => {
         console.log("Error login user", err);
@@ -94,12 +97,32 @@ class App extends Component {
       .get('auth/logout')
       .then(logoutData => {
         console.log('logoutUser data coming back!!!\n', logoutData);
+        localStorage.removeItem('email');
       })
       .catch(err => {
         console.log('Error App.js logoutUser!!!!!\n', err)
       })
     }
     
+    isAuthenticated = () => {
+      console.log('is authenticated App.js!!!')
+      axios
+      .get('auth/protected')
+      .then(logoutData => {
+        console.log('isAuthenticated App.js coming back!!!\n', logoutData);
+      })
+      .catch(err => {
+        console.log('Error App.js isAuthenticated!!!!!\n', err)
+      })
+      // if (req.isAuthenticated()) {
+      //   console.log('authRoutes.js isAuthenticated succeeded')
+      //   done()
+      // } else {
+      //   console.log('authRoutes.js isAuthenticated failed')
+      //   res.redirect('/')
+      // }
+    }
+
     render() {
       return (
       <div className="App">

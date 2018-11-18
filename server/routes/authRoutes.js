@@ -10,8 +10,7 @@ const bcrypt = require('bcrypt');
 passport.serializeUser( (user, done) => {
   console.log('serializeUser', user)
   done(null, {
-    email: user.email,
-    zomg: 'randomData'
+    email: user.email
   })
 })
 
@@ -22,6 +21,7 @@ passport.deserializeUser( (user, done) => {
     .fetch()
     .then( user => {
       user = user.toJSON();
+      console.log('user in deserialize user', user)
       done(null, user)
     })
     .catch( err => {
@@ -103,17 +103,22 @@ route.post('/login', passport.authenticate('local', {failureRedirect: '/'}), (re
 route.get('/logout', (req, res) => {
   console.log('auth logout!!!')
   req.logout()
+  console.log('auth logout, after logout!!')
   res.redirect('/')
+  console.log('auth logout, after redirect!!')
 })
 
-route.get('/secret',isAuthenticated, (req, res) => { 
+route.get('/protected',isAuthenticated, (req, res) => { 
+  console.log('protected route fired')
   res.send('YOU HAVE FOUND DA SEKRET')
 })
 
 function isAuthenticated(req, res, done) {
   if (req.isAuthenticated()) {
+    console.log('authRoutes.js isAuthenticated succeeded')
     done()
   } else {
+    console.log('authRoutes.js isAuthenticated failed')
     res.redirect('/')
   }
 }
