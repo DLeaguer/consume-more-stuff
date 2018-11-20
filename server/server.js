@@ -91,6 +91,8 @@ app.post('/newUser', (req, res) => {
 
 app.post('/newBobble', (req, res) => {
   console.log('new bobble fired', req.body)
+  console.log('isAuthenticated exists', req.isAuthenticated())
+  if (req.isAuthenticated()) {
     const bobble = req.body
     const newBobble = {
       title: bobble.title,
@@ -116,6 +118,10 @@ app.post('/newBobble', (req, res) => {
         res.json(err)
       })
     })
+  } else {
+    console.log('You are not permitted to post bobbles');
+    res.json('You are not permitted to post bobbles');
+  }
 })
 
 app.delete('/deleteUser/:id', (req, res) => {
@@ -211,6 +217,23 @@ app.put("/editBobble/:id", (req, res) => {
       res.json("FAILED");
     })
 })
+
+app.get('/protected', isAuthenticated, (req, res) => { 
+  console.log('protected route fired')
+  res.send('YOU HAVE FOUND DA SEKRET')
+})
+
+function isAuthenticated(req, res, done) {
+  if (req.isAuthenticated()) {
+    console.log('authRoutes.js isAuthenticated succeeded')
+    done()
+  } else {
+    console.log('authRoutes.js isAuthenticated failed')
+    res.redirect('/')
+  }
+}
+
+
 
 //Routes middleware
 // app.use('/', users);

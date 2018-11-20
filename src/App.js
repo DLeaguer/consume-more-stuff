@@ -103,25 +103,6 @@ class App extends Component {
         console.log('Error App.js logoutUser!!!!!\n', err)
       })
     }
-    
-    isAuthenticated = () => {
-      console.log('is authenticated App.js!!!')
-      axios
-      .get('auth/protected')
-      .then(logoutData => {
-        console.log('isAuthenticated App.js coming back!!!\n', logoutData);
-      })
-      .catch(err => {
-        console.log('Error App.js isAuthenticated!!!!!\n', err)
-      })
-      // if (req.isAuthenticated()) {
-      //   console.log('authRoutes.js isAuthenticated succeeded')
-      //   done()
-      // } else {
-      //   console.log('authRoutes.js isAuthenticated failed')
-      //   res.redirect('/')
-      // }
-    }
 
     render() {
       return (

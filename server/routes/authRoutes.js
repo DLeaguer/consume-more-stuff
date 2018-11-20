@@ -108,20 +108,20 @@ route.get('/logout', (req, res) => {
   console.log('auth logout, after redirect!!')
 })
 
-route.get('/protected',isAuthenticated, (req, res) => { 
-  console.log('protected route fired')
-  res.send('YOU HAVE FOUND DA SEKRET')
-})
+// route.get('/protected', isAuthenticated, (req, res) => { 
+//   console.log('protected route fired')
+//   res.send('YOU HAVE FOUND DA SEKRET')
+// })
 
-function isAuthenticated(req, res, done) {
-  if (req.isAuthenticated()) {
-    console.log('authRoutes.js isAuthenticated succeeded')
-    done()
-  } else {
-    console.log('authRoutes.js isAuthenticated failed')
-    res.redirect('/')
-  }
-}
+// function isAuthenticated(req, res, done) {
+//   if (req.isAuthenticated()) {
+//     console.log('authRoutes.js isAuthenticated succeeded')
+//     done()
+//   } else {
+//     console.log('authRoutes.js isAuthenticated failed')
+//     res.redirect('/')
+//   }
+// }
 
 module.exports = route
 
