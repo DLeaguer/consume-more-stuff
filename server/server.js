@@ -118,9 +118,10 @@ app.post('/newBobble', (req, res) => {
         res.json(err)
       })
     })
-  } else {
+  } 
+  else {
     console.log('You are not permitted to post bobbles');
-    res.json('You are not permitted to post bobbles');
+    res.send('You are not permitted to post bobbles');
   }
 })
 
@@ -144,22 +145,27 @@ app.delete('/deleteUser/:id', (req, res) => {
 })
 
 app.delete('/deleteBobble/:id', (req, res) => {
-  let { id } = req.params;
-  console.log('req.params id', id)
-  Bobbles
-  .where({ id })
-  .destroy()
-  .then(() => {
-    return Bobbles
-    .fetchAll()
-    .then( result => {
-      res.json(result.serialize())
+  if (req.isAuthenticated()) {
+    let { id } = req.params;
+    console.log('req.params id', id)
+    Bobbles
+    .where({ id })
+    .destroy()
+    .then(() => {
+      return Bobbles
+      .fetchAll()
+      .then( result => {
+        res.json(result.serialize())
+      })
+      .catch(err => {
+        console.log('err', err)
+        res.json(err)
+      })
     })
-    .catch(err => {
-      console.log('err', err)
-      res.json(err)
-    })
-  })
+  } else {
+    console.log('Server.js app.delete You are not permitted to delete bobble')
+    res.send('You are not permitted to delete bobbles')
+  }
 })
 
 app.put("/editUser/:id", (req, res) => {
@@ -170,38 +176,39 @@ app.put("/editUser/:id", (req, res) => {
     updated_at: req.body.updated_at
   }
   Users
-    .where('id', req.params.id)
-    .fetch()
-    .then(results => {
-      console.log("\nBackend - PUT results:", results);
-      results.save(updatedUser);
-      return Users.fetchAll()
-    })
-    .then(users => {
-      res.json(users.serialize());
-    })
-    .catch(err => {
-      console.log("Backend PUT didn't work");
-      res.json("FAILED");
-    })
+  .where('id', req.params.id)
+  .fetch()
+  .then(results => {
+    console.log("\nBackend - PUT results:", results);
+    results.save(updatedUser);
+    return Users.fetchAll()
+  })
+  .then(users => {
+    res.json(users.serialize());
+  })
+  .catch(err => {
+    console.log("Backend PUT didn't work");
+    res.json("FAILED");
+  })
 })
 
 
 app.put("/editBobble/:id", (req, res) => {
-  console.log('edit bobble fired')
-  const updatedBobble = {
-    title: req.body.title,
-    description: req.body.description,
-    price: req.body.price,
-    image: req.body.image,
-    condition: req.body.condition,
-    category: req.body.category,
-    status: req.body.status,
-    user_id: req.body.user_id,
-    created_at: req.body.created_at,
-    updated_at: req.body.updated_at
-  }
-  Bobbles
+  if (req.isAuthenticated()) {
+    console.log('edit bobble fired')
+    const updatedBobble = {
+      title: req.body.title,
+      description: req.body.description,
+      price: req.body.price,
+      image: req.body.image,
+      condition: req.body.condition,
+      category: req.body.category,
+      status: req.body.status,
+      user_id: req.body.user_id,
+      created_at: req.body.created_at,
+      updated_at: req.body.updated_at
+    }
+    Bobbles
     .where('id', req.params.id)
     .fetch()
     .then(results => {
@@ -216,22 +223,26 @@ app.put("/editBobble/:id", (req, res) => {
       console.log("Backend PUT didn't work");
       res.json("FAILED");
     })
-})
+    } else {
+      console.log('Server.js app.put You are not permitted to edit bobble')
+      res.send('You are not permitted to edit bobbles')
+    }
+  })
+  
+//   app.get('/protected', isAuthenticated, (req, res) => { 
+//     console.log('protected route fired')
+//     res.send('YOU HAVE FOUND DA SEKRET')
+//   })
 
-app.get('/protected', isAuthenticated, (req, res) => { 
-  console.log('protected route fired')
-  res.send('YOU HAVE FOUND DA SEKRET')
-})
-
-function isAuthenticated(req, res, done) {
-  if (req.isAuthenticated()) {
-    console.log('authRoutes.js isAuthenticated succeeded')
-    done()
-  } else {
-    console.log('authRoutes.js isAuthenticated failed')
-    res.redirect('/')
-  }
-}
+// function isAuthenticated(req, res, done) {
+//   if (req.isAuthenticated()) {
+//     console.log('authRoutes.js isAuthenticated succeeded')
+//     done()
+//   } else {
+//     console.log('authRoutes.js isAuthenticated failed')
+//     res.redirect('/')
+//   }
+// }
 
 
 
