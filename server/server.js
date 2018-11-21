@@ -118,8 +118,7 @@ app.post('/newBobble', (req, res) => {
         res.json(err)
       })
     })
-  } 
-  else {
+  } else {
     console.log('You are not permitted to post bobbles');
     res.send('You are not permitted to post bobbles');
   }

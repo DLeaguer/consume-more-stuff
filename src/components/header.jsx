@@ -21,7 +21,7 @@ function Header(props) {
                 <Link className='App-route' to='/viewAll'>View All</Link>
               </div>
               <div>
-                <Link className='App-route' to='/addForm'>New Bobble</Link>
+                <Link className='App-route' id='addFormId' to='/addForm'>New Bobble</Link>
               </div>
               <br/>
               <div className='catLink'>
