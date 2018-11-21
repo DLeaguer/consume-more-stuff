@@ -6,9 +6,9 @@ import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 function Categories(props) {
   console.log('header props', props)
-  const catHideStyle = {
+  // const catHideStyle = {
     // display: 'flex'
-  }
+  //}
   return (
     <div className='App'>
       <Router>

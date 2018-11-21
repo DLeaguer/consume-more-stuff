@@ -68,34 +68,34 @@
   margin-top: 25px;
 }
 
-.catHeader {
+/* .catHeader { */
   /* border: 1px solid red; */
   /* background-color: orange; */
 /* display: flex;
 flex-direction: column; */
   /* margin: 12px 12px 12px 12px; */
   /* color: #3e3e3e; */
-}
+/* } */
 
-.catLink {
+/* .catLink { */
   /* border: 1px solid green; */
   /* background-color: orange; */
   /* display: flex;
   flex-direction: column; */
   /* height: 80px; */
-  margin: 0px;
+  /* margin: 0px; */
   /* color: #3e3e3e; */
-}
+/* } */
 
-.catLink:hover .catHide {
+/* .catLink:hover .catHide { */
   /* border: green; */
   /* display: block; */
-}
+/* } */
 
-.catHide {
+/* .catHide { */
   /* border: purple; */
   /* display: none; */
-}
+/* } */
 
 .catRoute {
   border: blue;
