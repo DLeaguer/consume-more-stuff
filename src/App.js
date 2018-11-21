@@ -15,7 +15,8 @@ class App extends Component {
   }
  
   componentDidMount() {
-    console.log('component did mount')
+    console.log('component did mount', localStorage)
+    this.showHide();
     axios
       .get('/bobbles')
       .then( items => {
@@ -25,6 +26,15 @@ class App extends Component {
       .catch( err => {
         console.log('err')
       })
+  }
+
+  showHide = () => {
+    const addBobbleId = document.getElementById('addFormId')
+    if (localStorage.email) {
+      addBobbleId.style.display = 'inline';
+    } else {
+      addBobbleId.style.display = 'none';
+    }
   }
 
   addBobbleToList = (item) => {

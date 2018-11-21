@@ -23,8 +23,8 @@
 }
 
 .catImg {
-  width: 10%;
-  height: 10%;
+  width: 50%;
+  height: 50%;
 }
 
 .App-header {
@@ -114,11 +114,14 @@ flex-direction: column; */
 }
 
 .bobbleCards {
-  border: 1px solid black;
+  border: 1px solid grey;
   margin: 15px 15px;
   padding: 5px;
   /* color: #3e3e3e; */
+  width: 400px;
+  transition: border-width 0.6s linear;
 }
+.bobbleCards:hover { border-width: 2px; }
 
 .addFormPage {
   padding: 15px;
