@@ -10,7 +10,7 @@ function ViewAll(props) {
       <button className='deleteButton' onClick={ () => {props.deleteBobble(item.id)}}>Delete</button> <hr/>
       <p id='editFormTitle'>Edit Form</p>
       <Router>
-        <div>
+        <div className='editFormLink'>
         <Link to="/editForm">Click to edit bobble</Link>
         <Route path='/editForm' component={() => <EditForm bobbles={props.bobbles} id={item.id} editBobble={props.editBobble}/>} ></Route>
         </div>

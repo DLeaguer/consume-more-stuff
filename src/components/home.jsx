@@ -5,7 +5,9 @@ function Home(props) {
   return (
     <div>
       <div>
-        <a href="https://giphy.com/gifs/puppy-black-and-white-2FhASosZtLUPe" target='blank'><img  className='homeImg' src={require('../BobbleBay.png')} alt="BobbleBay" /></a>
+        <a  
+        target='blank'>
+        <img  className='homeImg' src={require('../BobbleBay.png')} alt="BobbleBay" /></a>
       </div>
     </div>
   )
