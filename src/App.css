@@ -1,11 +1,15 @@
 .App {
   box-sizing: border-box;
+  background-color: rgb(98, 9, 158);
+  color: rgb(240, 171, 42);
   -webkit-box-sizing: border-box;
   width: 100%;
   /* border: 10px solid blue; */
   margin: 0px;
   padding: 0px;
 }
+
+
 /* 
 .App:hover {
   color: salmon;
@@ -17,9 +21,12 @@
 }
 
 .homeImg {
-  margin: 5% 30%;
-  width: 500px;
-  height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 40px;
+  filter: drop-shadow(30px 10px 4px #373738);
 }
 
 .catImg {
@@ -30,7 +37,7 @@
 .App-header {
   /* border: 5px solid red; */
   width: 100%;
-  background-color: orange;
+  background-color: rgb(98, 9, 158);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -53,6 +60,8 @@
 .App-route {
   /* border: 1px solid white; */
   margin: 12px 12px 12px 12px;
+  color: rgb(240, 171, 42);
+
   /* color: #cccccc; */
 }
 
@@ -68,7 +77,18 @@
   margin-top: 25px;
 }
 
-/* .catHeader { */
+
+/*carl CSS
+.catHeader {
+  display: flex;
+  flex-direction: column;
+  flex-grow: initial;
+  height: 100%;
+  background-color: rgb(98, 9, 158);
+  color: rgb(240, 171, 42);
+  text-align: center;
+
+
   /* border: 1px solid red; */
   /* background-color: orange; */
 /* display: flex;
@@ -111,12 +131,14 @@ flex-direction: column; */
   /* border: 1px solid #3e3e3e; */
   padding: 3px 10px 0px 10px;
   margin: 25px 12px 0px 0px;
+  color: rgb(240, 171, 42);
+
 }
 
 .bobbleCards {
-  border: 1px solid grey;
-  margin: 15px 15px;
-  padding: 5px;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: rgb(98, 9, 158);
   /* color: #3e3e3e; */
   width: 400px;
   transition: border-width 0.6s linear;
@@ -125,19 +147,20 @@ flex-direction: column; */
 
 .addFormPage {
   padding: 15px;
-  background-color: paleturquoise;
+  text-align: center;
+  background-color: rgb(98, 9, 158);
   height: 100%;
   /* color: #3e3e3e; */
 }
 
 .addFormContainer {
-  border: 1px solid blue;
+  border: 3px solid rgb(55, 3, 97);
   /* margin: 0% 43%; */
   width: 400px;
   margin: auto;
   padding: 20px 15px;
-  background-color: #ddd;
-  box-shadow: 2px 2px 8px 2px #ccc;
+  background-color: rgb(150, 145, 153);
+  box-shadow: 2px 2px 8px 2px rgb(231, 181, 105);
   border-radius: 15px;
   /* display: flex; */
   /* flex-direction: column; */
@@ -155,6 +178,15 @@ input {
 
 #editFormTitle {
   font-weight: bold;
+}
+
+a {
+  color: rgb(240, 171, 42);
+}
+
+hr {
+  display: none;
+
 }
 
 
