@@ -10,13 +10,14 @@ class App extends Component {
     super(props);
     this.state = 
     {
-      items: []
+      items: [],
+      showAddButton: false
     };
   }
  
   componentDidMount() {
     console.log('component did mount', localStorage)
-    this.showHide();
+    // this.showHide();
     axios
       .get('/bobbles')
       .then( items => {
@@ -28,14 +29,18 @@ class App extends Component {
       })
   }
 
-  showHide = () => {
-    const addBobbleId = document.getElementById('addFormId')
-    if (localStorage.email) {
-      addBobbleId.style.display = 'inline';
-    } else {
-      addBobbleId.style.display = 'none';
-    }
-  }
+  // showHide = () => {
+  //   const addBobbleId = document.getElementById('addFormId')
+  //   if (localStorage.email) {
+  //     this.state.showHide = true;
+  //     if (this.state.showHide === true) {
+  //       addBobbleId.style.display = 'inline';
+  //     } 
+  //   }
+  //   else {
+  //     addBobbleId.style.display = 'none';
+  //   }
+  // }
 
   addBobbleToList = (item) => {
     console.log('addItemToList item', item)
@@ -95,6 +100,7 @@ class App extends Component {
         console.log('email for auth login user', email)
         console.log('user data coming back', JSON.parse(userData.config.data).email);
         localStorage.setItem('email', email)
+        this.setState({ showAddButton: true})
       })
       .catch(err => {
         console.log("Error login user", err);
@@ -108,6 +114,7 @@ class App extends Component {
       .then(logoutData => {
         console.log('logoutUser data coming back!!!\n', logoutData);
         localStorage.removeItem('email');
+        this.setState({showAddButton: false});
       })
       .catch(err => {
         console.log('Error App.js logoutUser!!!!!\n', err)
@@ -118,7 +125,7 @@ class App extends Component {
       return (
       <div className="App">
         <header className="App-header">
-          <Header addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} deleteBobble={this.deleteBobbleFromList} editBobble={this.editItemInList} registerUser={this.registerUser} loginUser={this.loginUser} logoutUser={this.logoutUser}/>
+          <Header showAddButton={this.state.showAddButton} addBobbleToList={this.addBobbleToList} getBobbles={this.getBobbles} bobbles={this.state.items} deleteBobble={this.deleteBobbleFromList} editBobble={this.editItemInList} registerUser={this.registerUser} loginUser={this.loginUser} logoutUser={this.logoutUser}/>
         </header>
       </div>
     );
