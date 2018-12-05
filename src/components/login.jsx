@@ -13,12 +13,11 @@ class Login extends Component {
       console.log('Register props', props)
     }
 
-    
-
     handleSubmit = (e) => {
         e.preventDefault();
         console.log('submitted!', this.state)
         this.props.loginUser(this.state)
+
     }
     
     handleChange = (e) => {
@@ -30,6 +29,7 @@ class Login extends Component {
     }
     
     render() {
+      console.log('login form is re-rendering')
         return (
           <div className="loginPage">
             <h1>

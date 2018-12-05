@@ -20,8 +20,9 @@ function Header(props) {
               <div>
                 <Link className='App-route' to='/viewAll'>View All</Link>
               </div>
-              <div>
-                <Link className='App-route' id='addFormId' to='/addForm'>New Bobble</Link>
+              <div>{
+                props.showAddButton ? <Link className='App-route' id='addFormId' to='/addForm'>New Bobble</Link> : null
+              }
               </div>
               <br/>
               <div className='catLink'>

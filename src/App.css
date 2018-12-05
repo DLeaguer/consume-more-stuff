@@ -139,7 +139,12 @@ flex-direction: column; */
 .bobbleCards {
   border: 1px solid black;
   padding: 10px;
+<<<<<<< HEAD
   background-color: rgba(255, 255, 255, 0.904);
+=======
+  margin: 10px;
+  background-color: rgb(98, 9, 158);
+>>>>>>> 5ff3ec31397d798118b552cd681d38fa5abb9a41
   /* color: #3e3e3e; */
   width: 400px;
   transition: border-width 0.6s linear;
