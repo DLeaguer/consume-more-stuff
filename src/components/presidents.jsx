@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles.css'
 
 function Presidents(props) {
   console.log('Presidents props', props)

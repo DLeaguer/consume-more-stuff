@@ -1,6 +1,6 @@
 .App {
   box-sizing: border-box;
-  background-color: rgba(248, 247, 248, 0.815);
+  background-color: rgba(255, 255, 255, 0.904);
   color: rgb(240, 171, 42);
   -webkit-box-sizing: border-box;
   width: 100%;
@@ -36,8 +36,9 @@
 
 .App-header {
   /* border: 5px solid red; */
+  
   width: 100%;
-  background-color: rgba(248, 247, 248, 0.815);
+  background-color: rgba(255, 255, 255, 0.904);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -145,8 +146,9 @@ flex-direction: column; */
   height: 500px;
   width: 500px;
   padding: 10px;
+  background-color: rgba(255, 255, 255, 0.904);
   margin: 10px;
-  background-color: rgba(248, 247, 248, 0.815);
+
   /* color: #3e3e3e; */
   width: 400px;
   transition: border-width 0.6s linear;
@@ -156,7 +158,8 @@ flex-direction: column; */
 .addFormPage {
   padding: 15px;
   text-align: center;
-  background-color: rgba(248, 247, 248, 0.815);
+   background-color: rgba(255, 255, 255, 0.904);
+
   height: 100%;
   /* color: #3e3e3e; */
 }
